@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+    }
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
