@@ -78,13 +78,15 @@ header{
 }
 
 p{
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-size: 18px;
+    padding: center;
+    text-align: center;
 }
 
 .btn{
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 150px;
     padding: 10px 40px;
     border: 2px solid #012E40;
     color: #ffff;
@@ -101,7 +103,7 @@ p{
 
 }
 .btn-home a{
-    margin: 0 10px;
+    margin: 0 25px;
     
 }
 .content{
@@ -109,13 +111,85 @@ p{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  
-}
+  align-items:center;
+ }
 
 .sau{
     padding: 30px;
-    background: #1f1d1f1;
+    background: #F28705;
+}
 
+ .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align:center;   
+ }
 
+ .box-container .box{
+    text-align:center;
+    height: 10rem;
+    width: 17rem;
+    background: #101010;
+    border-radius: 3rem;
+    box-shadow:0 .3rem  5rem rgb(0, 0, .5);
+    margin: 2rem;
+ }
+
+ .box-container .box i{
+    height: 3rem;
+    width: 3rem;
+    line-height: 3rem;
+    text-align:center;
+    border-radius: 50%;
+    color: #F28705;
+    font-size: 2rem;
+    margin: 1rem 0;
+ }
+
+.box-container .box h3{
+    font-size: 20px;
+    color: #F28705
+    
+}
+
+.box-container .box p{
+    padding: 0 10px;
+    font-size: 10px;
+}
+
+.about{
+    background: #012E40;
+   
+
+}
+.price{
+
+    background: url(https://i.pinimg.com/564x/b4/65/44/b46544cc9b5ab2bc94fbe9f82d9ffa67.jpg)no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+.contact{
+padding-top: 20px;
+background: #101010;
+padding-bottom: 0;
+}
+
+@media(max-width: 768px){
+
+    .title{
+        margin-bottom: 0;
+        font-size: 40px;
+
+    }
+    .sau{
+        height: 120vh;
+
+    }
+
+    .navbar{
+        display: none;
+    }
 }
