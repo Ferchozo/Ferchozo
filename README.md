@@ -17,3 +17,4 @@
             <li>Abierto a pasantías u oportunidades laborales - revisa <a href="https://drive.google.com/file/d/1qCIwGmwZEII01R93nHeDieBRLqbZeruZ/view?usp=drive_link" target="_blank">mi currículum</a></li>
         </ul>
     </section>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
