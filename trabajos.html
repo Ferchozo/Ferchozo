@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estante de Libros</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="shelf">
+        <div class="book" data-story="story1">
+            <div class="title">The Red Badge of Courage</div>
+            <div class="author">Stephen Crane</div>
+        </div>
+        <div class="book" data-story="story2">
+            <div class="title">A Portrait of the Artist</div>
+            <div class="author">James Joyce</div>
+        </div>
+        <div class="book" data-story="story3">
+            <div class="title">Aesop's Fables</div>
+            <div class="author">Aesop</div>
+        </div>
+        <div class="book" data-story="story4">
+            <div class="title">Oedipus the King</div>
+            <div class="author">Sophocles</div>
+        </div>
+        <div class="book" data-story="story5">
+            <div class="title">The Aeneid</div>
+            <div class="author">Virgil</div>
+        </div>
+        <div class="book" data-story="story6">
+            <div class="title">Little Women</div>
+            <div class="author">Louisa May Alcott</div>
+        </div>
+        <div class="book" data-story="story7">
+            <div class="title">Ivanhoe</div>
+            <div class="author">Walter Scott</div>
+        </div>
+        <div class="book" data-story="story8">
+            <div class="title">The Republic</div>
+            <div class="author">Plato</div>
+        </div>
+        <div class="book" data-story="story9">
+            <div class="title">Pride and Prejudice</div>
+            <div class="author">Jane Austen</div>
+        </div>
+        <div class="book" data-story="story10">
+            <div class="title">The Cherry Orchard</div>
+            <div class="author">Anton Chekhov</div>
+        </div>
+        <div class="book" data-story="story11">
+            <div class="title">Two Plays</div>
+            <div class="author">Euripides</div>
+        </div>
+        <div class="book" data-story="story12">
+            <div class="title">Huckleberry Finn</div>
+            <div class="author">Mark Twain</div>
+        </div>
+    </div>
+
+    <div class="story" id="story1">
+        <h2>The Red Badge of Courage</h2>
+        <p>Historia completa de "The Red Badge of Courage"...</p>
+    </div>
+    <div class="story" id="story2">
+        <h2>A Portrait of the Artist</h2>
+        <p>Historia completa de "A Portrait of the Artist"...</p>
+    </div>
+    <div class="story" id="story3">
+        <h2>Aesop's Fables</h2>
+        <p>Historia completa de "Aesop's Fables"...</p>
+    </div>
+    <div class="story" id="story4">
+        <h2>Oedipus the King</h2>
+        <p>Historia completa de "Oedipus the King"...</p>
+    </div>
+    <div class="story" id="story5">
+        <h2>The Aeneid</h2>
+        <p>Historia completa de "The Aeneid"...</p>
+    </div>
+    <div class="story" id="story6">
+        <h2>Little Women</h2>
+        <p>Historia completa de "Little Women"...</p>
+    </div>
+    <div class="story" id="story7">
+        <h2>Ivanhoe</h2>
+        <p>Historia completa de "Ivanhoe"...</p>
+    </div>
+    <div class="story" id="story8">
+        <h2>The Republic</h2>
+        <p>Historia completa de "The Republic"...</p>
+    </div>
+    <div class="story" id="story9">
+        <h2>Pride and Prejudice</h2>
+        <p>Historia completa de "Pride and Prejudice"...</p>
+    </div>
+    <div class="story" id="story10">
+        <h2>The Cherry Orchard</h2>
+        <p>Historia completa de "The Cherry Orchard"...</p>
+    </div>
+    <div class="story" id="story11">
+        <h2>Two Plays</h2>
+        <p>Historia completa de "Two Plays"...</p>
+    </div>
+    <div class="story" id="story12">
+        <h2>Huckleberry Finn</h2>
+        <p>Historia completa de "Huckleberry Finn"...</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.book').forEach(book => {
+            book.addEventListener('click', () => {
+                document.querySelectorAll('.story').forEach(story => {
+                    story.style.display = 'none';
+                });
+                const storyId = book.getAttribute('data-story');
+                document.getElementById(storyId).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
