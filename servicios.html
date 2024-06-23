@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <link rel="stylesheet" href="servicios.css">
+</head>
+<body>
+    <header>
+        <h1>Proyectos</h1>
+    </header>
+    <section class="portfolio">
+        <div class="project" onclick="openProject('https://example.com/project1')">
+            <img src="img/i1.jpg" alt="Proyecto 1">
+            <div class="overlay">
+                <h2>Proyecto 1</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+            </div>
+        </div>
+        <div class="project" onclick="openProject('https://example.com/project2')">
+            <img src="img/i2.jpg" alt="Proyecto 2">
+            <div class="overlay">
+                <h2>Proyecto 3</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js</p>
+            </div>
+        </div>
+        <div class="project" onclick="openProject('https://example.com/project2')">
+            <img src="img/i3.jpg" alt="Proyecto 3">
+            <div class="overlay">
+                <h2>Proyecto 4</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js</p>
+            </div>
+        </div>
+        <div class="project" onclick="openProject('https://example.com/project2')">
+            <img src="img/i4.jpg" alt="Proyecto 4">
+            <div class="overlay">
+                <h2>Proyecto 5</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js</p>
+            </div>
+        </div>
+        <div class="project" onclick="openProject('https://example.com/project2')">
+            <img src="img/i4.jpg" alt="Proyecto 5">
+            <div class="overlay">
+                <h2>Proyecto 6</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js</p>
+            </div>
+        </div>
+        <div class="project" onclick="openProject('https://example.com/project2')">
+            <img src="img/i4.jpg" alt="Proyecto 6">
+            <div class="overlay">
+                <h2>Proyecto 2</h2>
+                <p>Descripción breve del proyecto.</p>
+                <p><strong>Tecnologías:</strong> React, Node.js</p>
+            </div>
+        </div>
+        <!-- Agrega más proyectos aquí -->
+    </section>
+
+    <script>
+        function openProject(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
