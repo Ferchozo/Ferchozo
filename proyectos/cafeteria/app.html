@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Cafetería</title>
+    <link rel="stylesheet" href="stilo.css">
+</head>
+<body>
+    <!-- Pantalla de carga -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container" style="display:none;">
+        <header>
+            <h1>Cafetería Delicias</h1>
+            <p>Explora nuestro menú y selecciona tus productos</p>
+        </header>
+
+        <section id="catalogo">
+            <!-- Productos se generarán aquí -->
+        </section>
+
+        <aside id="carrito">
+            <h2>Detalle de Compra</h2>
+            <ul id="carrito-lista">
+                <!-- Items seleccionados se mostrarán aquí -->
+            </ul>
+            <p>Total: $<span id="carrito-total">0.00</span></p>
+            <button id="finalizar-compra">Finalizar Compra</button>
+        </aside>
+
+        <footer>
+            <p>&copy; 2024 Cafetería Delicias. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <button id="confirmar-compra">Confirmar Compra</button>
+            <button id="cancelar-compra">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
