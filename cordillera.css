@@ -1,20 +1,20 @@
 
             h1 {
                 font-family: 'Honk', sans-serif;
-                font-size: 4em;
+                font-size: 3em;
                 margin-bottom: 20px;
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             }
             
             h2 {
                 font-family: 'Honk', serif;
-                font-size: 3em;
+                font-size: 2em;
                 margin-bottom: 20px;
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             }
             #countdown {
                 font-family: 'Honk', monospace;
-                font-size: 8em;
+                font-size: 5em;
                 font-weight: bold;
                 text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
                 color: #fff; /* Asegúrate de que el color del texto contraste con el fondo */
@@ -29,7 +29,7 @@
                 height: 100vh;
                 background: linear-gradient(270deg, #ff0000, #ff4500, #ff6347, #ff7f50, #ff8c00, #ffa500, #ffb6c1, #ff69b4, #ff1493, #ff00ff, #9400d3, #8a2be2, #4b0082, #0000ff, #1e90ff, #00bfff);
                 background-size: 3200% 3200%;
-                animation: gradient 100s ease infinite;
+                animation: gradient 150s ease infinite;
                 color: #fff;
                 position: relative;
                 overflow: hidden;
