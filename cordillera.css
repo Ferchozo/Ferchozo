@@ -1,0 +1,15 @@
+
+            h1 {
+                font-family: 'abril fatface', sans-serif;
+                font-size: 3em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            }
+            
+            h2 {
+                font-family: 'Abril Fatface', serif;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            }
+            
