@@ -2,72 +2,102 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Inventario Farmacia - Ejemplo</title>
+  <title>Inventario Farmacia - Ejemplo XLS</title>
+  
   <!-- Material Design Lite -->
-  <link
-    rel="stylesheet"
-    href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
-  />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-  <!-- Papa Parse -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
-
-  <!-- QuaggaJS para el escaneo de códigos de barras -->
+  
+  <!-- SheetJS (XLSX) para leer archivos Excel -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  
+  <!-- QuaggaJS para escanear códigos de barras -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
 
+  <!-- Estilos personalizados -->
   <style>
+    /* Fondo tranquilo: verde pastel */
+    body {
+      background-color: #d7f0d6; /* Tonalidad verde claro/pastel */
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
     .container {
       width: 90%;
       margin: 20px auto;
+      max-width: 1200px;
     }
+
     table {
       width: 100%;
       margin-top: 20px;
     }
+
     th, td {
       padding: 8px;
       text-align: left;
     }
+
+    /* Colores de resaltado al encontrar el producto / no encontrado */
     .found {
-      background-color: #c8e6c9; /* Verde claro para indicar encontrado */
+      background-color: #c8e6c9; /* Verde claro */
     }
+
     .not-found {
-      background-color: #ffcdd2; /* Rojo claro para indicar no encontrado */
+      background-color: #ffcdd2; /* Rojo claro */
     }
+
+    /* Ajustes para inputs */
     .mdl-textfield {
       width: 100%;
     }
+
+    /* Contenedor del escáner */
     #scanner-container {
       position: relative;
       width: 100%;
       max-width: 400px;
       margin: 20px auto;
     }
+
     #interactive.viewport {
       position: relative;
       width: 100%;
     }
+
     #interactive video {
       width: 100%;
+    }
+
+    /* Botones con margen */
+    .btn-margin {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
+  <h3>Inventario de Farmacia - Lectura de Excel (XLS/XLSX)</h3>
 
-  <h3>Inventario Farmacia (Ejemplo) </h3>
-
-  <!-- Botón para subir CSV -->
+  <!-- Botón para subir archivo XLS/XLSX -->
   <input
     type="file"
-    id="csvFileInput"
-    accept=".csv"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+    id="xlsFileInput"
+    accept=".xls,.xlsx"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-margin"
   />
-  
-  <!-- Contenedor de tabla -->
+
+  <!-- Botón para iniciar/pausar el escaneo de códigos de barras -->
+  <button
+    id="startScannerBtn"
+    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+  >
+    Iniciar Escaneo
+  </button>
+
+  <!-- Tabla de productos -->
   <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="productsTable">
     <thead>
       <tr>
@@ -79,61 +109,84 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Se rellena dinámicamente -->
+      <!-- Filas generadas dinámicamente -->
     </tbody>
   </table>
 
-  <!-- Botón para iniciar/pausar el escaneo -->
-  <button
-    id="startScannerBtn"
-    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
-  >
-    Iniciar Escaneo
-  </button>
-
-  <!-- Contenedor para el escáner QuaggaJS -->
+  <!-- Contenedor del escáner (cámara) -->
   <div id="scanner-container">
     <div id="interactive" class="viewport"></div>
   </div>
-
 </div>
 
 <script>
-  let products = []; // Array donde guardamos la información del CSV
+  let products = []; // Aquí guardaremos los datos leídos del XLS
   let scannerRunning = false;
 
   // Referencias a elementos del DOM
-  const csvFileInput = document.getElementById("csvFileInput");
+  const xlsFileInput = document.getElementById("xlsFileInput");
   const productsTableBody = document.querySelector("#productsTable tbody");
   const startScannerBtn = document.getElementById("startScannerBtn");
 
-  // Cargar y parsear CSV
-  csvFileInput.addEventListener("change", function(e) {
+  /*
+   * Lectura de archivos XLS/XLSX con SheetJS
+   */
+  xlsFileInput.addEventListener("change", function(e) {
     const file = e.target.files[0];
     if (!file) return;
-    Papa.parse(file, {
-      header: true, // Asume que la primera fila es cabecera
-      complete: function(results) {
-        // results.data es un array de objetos
-        products = results.data.map((prod, idx) => {
-          return {
-            codigo: prod["codigo"] || "",
-            nombre: prod["nombre"] || "",
-            cantidadSistema: prod["cantidadSistema"] || 0,
-            cantidadFisica: 0,
-            observaciones: "",
-            encontrado: false
-          };
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const data = new Uint8Array(event.target.result);
+      const workbook = XLSX.read(data, { type: "array" });
+
+      // Por simplicidad, tomamos la primera hoja
+      const firstSheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[firstSheetName];
+
+      // Convertimos la hoja a JSON
+      const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+      /*
+       * Suponiendo que la primera fila (jsonData[0]) son los encabezados:
+       *    [ 'codigo', 'nombre', 'cantidadSistema', ... ]
+       * Y las siguientes filas tienen los valores correspondientes.
+       * Ajusta la lógica según tus encabezados reales.
+       */
+      
+      // Identificamos los índices de las columnas relevantes
+      const headers = jsonData[0];
+      const colCodigo = headers.indexOf("codigo");
+      const colNombre = headers.indexOf("nombre");
+      const colCantidadSistema = headers.indexOf("Cantidad Sistema");
+
+      // Recorremos las filas (empezando en 1 para saltar encabezados)
+      products = [];
+      for (let i = 1; i < jsonData.length; i++) {
+        const row = jsonData[i];
+        if (!row || row.length === 0) continue; // fila vacía
+
+        const codigo = row[colCodigo] || "";
+        const nombre = row[colNombre] || "";
+        const cantSis = row[colCantidadSistema] || 0;
+
+        products.push({
+          codigo: String(codigo).trim(),
+          nombre: String(nombre),
+          cantidadSistema: parseInt(cantSis, 10) || 0,
+          cantidadFisica: 0,
+          observaciones: "",
+          encontrado: false
         });
-        renderTable();
-      },
-      error: function(err) {
-        console.error("Error al leer el CSV:", err);
       }
-    });
+      renderTable();
+    };
+    reader.readAsArrayBuffer(file);
   });
 
-  // Función para mostrar la tabla en el HTML
+  /*
+   * Renderizar la tabla
+   */
   function renderTable() {
     productsTableBody.innerHTML = "";
     products.forEach((prod, index) => {
@@ -161,7 +214,7 @@
       inputFisica.type = "number";
       inputFisica.value = prod.cantidadFisica;
       inputFisica.addEventListener("change", () => {
-        prod.cantidadFisica = inputFisica.value;
+        prod.cantidadFisica = parseInt(inputFisica.value, 10) || 0;
       });
       tdCantFisica.appendChild(inputFisica);
       row.appendChild(tdCantFisica);
@@ -181,7 +234,9 @@
     });
   }
 
-  // Iniciar o pausar el escáner
+  /*
+   * Iniciar / Detener escáner de código de barras
+   */
   startScannerBtn.addEventListener("click", () => {
     if (!scannerRunning) {
       startScanner();
@@ -196,7 +251,7 @@
         inputStream: {
           name: "Live",
           type: "LiveStream",
-          target: document.querySelector('#interactive') // ID del contenedor
+          target: document.querySelector('#interactive') // Contenedor
         },
         decoder: {
           readers: ["code_128_reader", "ean_reader", "upc_reader"]
@@ -205,7 +260,7 @@
       function(err) {
         if (err) {
           console.log(err);
-          alert("Error al iniciar el escáner: " + err);
+          alert("Error al iniciar escáner: " + err);
           return;
         }
         Quagga.start();
@@ -214,7 +269,7 @@
       }
     );
 
-    // Cuando Quagga detecta un código
+    // Evento cuando Quagga detecta un código
     Quagga.onDetected((data) => {
       const code = data.codeResult.code;
       console.log("Código detectado:", code);
@@ -228,13 +283,17 @@
     startScannerBtn.textContent = "Iniciar Escaneo";
   }
 
-  // Marca el producto como encontrado en la lista si coincide el código
+  /*
+   * Marcar el producto como encontrado por su código
+   */
   function marcarEncontrado(codigoLeido) {
-    const foundIndex = products.findIndex(p => p.codigo.trim() === codigoLeido.trim());
+    const foundIndex = products.findIndex(
+      p => p.codigo.trim() === codigoLeido.trim()
+    );
     if (foundIndex !== -1) {
       products[foundIndex].encontrado = true;
-      // Para ejemplificar, incrementamos en 1 la cantidad física cada vez que se escanea
-      products[foundIndex].cantidadFisica = parseInt(products[foundIndex].cantidadFisica || 0) + 1;
+      // Opcional: al escanear, podríamos aumentar en 1 la cantidad física
+      products[foundIndex].cantidadFisica += 1;
       renderTable();
     } else {
       alert("¡Producto no encontrado en la lista!");
