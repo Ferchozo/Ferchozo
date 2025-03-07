@@ -1,0 +1,84 @@
+/* Fondo pastel tranquilo */
+body {
+    background-color: #e8f5e9; /* Verde muy claro */
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  /* Tabla con MDL */
+  table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Colores de filas */
+  .found {
+    background-color: #c8e6c9; /* Verde claro */
+  }
+  .not-found {
+    background-color: #ffcdd2; /* Rojo claro */
+  }
+  
+  /* Contenedor del escáner (cámara) */
+  #scanner-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  #interactive.viewport {
+    position: relative;
+    width: 100%;
+  }
+  #interactive video {
+    width: 100%;
+  }
+  
+  /* Sección de búsqueda por nombre */
+  .search-section {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .search-section .mdl-textfield {
+    flex: 1;
+    min-width: 200px;
+  }
+  .search-section .mdl-button {
+    white-space: nowrap;
+  }
+  
+  /* Inputs en las filas de la tabla */
+  input[type="number"], input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Clase para resaltar una fila si hacemos scroll o highlight */
+  .highlight {
+    animation: highlight-animation 1.5s ease;
+  }
+  @keyframes highlight-animation {
+    0% { background-color: yellow; }
+    100% { background-color: inherit; }
+  }
+  
