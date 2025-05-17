@@ -1,32 +1,61 @@
-<h1 align="center"><b>Hola, Soy Fernando Hidalgo </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
-<!--  -->
+<h1 align="center">¡Hola, soy Fercho! 👋</h1>
+
 <p align="center">
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Honk&weight=500&size=25&pause=1000&color=0480F7F4&center=true&vCenter=true&random=true&width=435&lines=Desarrollo+Web;Dise%C3%B1o+de+UX+;Creador+de+Soluciones+Digitales" alt="Typing SVG" /></a>
+💻 Desarrollador autodidacta | 🤖 Apasionado por el hardware y el software | 🌱 En constante aprendizaje
 </p>
-<br>
-<picture><img src = "https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/about_me.gif" width = 50px></picture> Conóceme
-<br>
-<br>
- <section id="sobre-mi">
-        <h2>Sobre Mí</h2>
-        <ul>
-            <li>Apasionado desarrollador front-end autodidacta</li>
-            <li>Entusiasta de los desafíos Capture The Flag (CTF) en el tiempo libre</li>
-            <li>Aprendiendo y creciendo continuamente en el desarrollo web</li>
-            <li><a href="https://ferchozo.github.io/Ferchozo/" target="_blank">Sitio web personal</a></li>
-            <li>Abierto a pasantías u oportunidades laborales - revisa <a href="https://drive.google.com/file/d/1qCIwGmwZEII01R93nHeDieBRLqbZeruZ/view?usp=drive_link" target="_blank">mi currículum</a></li>
-        </ul>
-    </section>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
-<br>
-<!--- snake -->
-<div align="center">
-  <img  src="https://github.com/1999AZZAR/1999AZZAR/blob/readme/resources/img/grid-snake.svg"
-       alt="snake" /></a>
-</div>
-<br>
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=git,wordpress,vscode,unity,py,html,github" />
-  </a>
-</p>
+
+---
+
+### 🧠 Sobre mí
+
+Soy una persona curiosa por naturaleza, con una mente inquieta que ama resolver problemas reales a través de soluciones tecnológicas. Combino mis conocimientos en desarrollo web con automatización usando microcontroladores como **ESP8266** y **Raspberry Pi** para crear sistemas funcionales, útiles y modernos.
+
+📍 Desde una farmacia en Ecuador hasta el control inteligente de mi motocicleta, me encanta mezclar la vida cotidiana con tecnología real.
+
+---
+
+### 🚀 Actualmente estoy trabajando en:
+- Un sistema de gestión interna para farmacias: control de ventas, inventarios, caducados y más.
+- Automatización de procesos con microcontroladores (ESP8266 + LED matrices).
+- Un dashboard personal para visualizar rendimiento y productividad.
+
+---
+
+### 🤝 Busco colaborar en:
+- Proyectos de automatización IoT.
+- Dashboards para PyMEs.
+- Apps que mezclen software y hardware.
+
+---
+
+### 📚 Aprendiendo actualmente:
+- React y Next.js para interfaces modernas.
+- Tailwind CSS para diseño limpio y eficiente.
+- Integración de APIs con Node.js.
+- Análisis de datos con Python y JS.
+
+---
+
+### 🧩 Un dato curioso:
+> Tengo un gato llamado **Cogollo** y una moto a la que quiero volver inteligente.  
+> Me gusta escribir código mientras suena rock clásico, y creo firmemente que una buena idea con pasión puede cambiarlo todo.
+
+---
+
+### 📊 GitHub Stats
+
+![Ferchozo's GitHub stats](https://github-readme-stats.vercel.app/api?username=Ferchozo&show_icons=true&theme=radical)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Ferchozo&layout=compact&theme=radical)
+
+---
+
+### 📫 ¿Quieres hablar conmigo?
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/luis-fernando-hidalgo-manzaba-6539ba241/)
+- 💌 ferchoshidalgo@gmail.com 
+- ☕ ¡Siempre estoy dispuesto a colaborar, aprender o simplemente conversar!
+
+---
+
+⭐ Si te gustó algo de este perfil o crees que podemos construir algo juntos, ¡hazme *fork*, *follow* o mándame un mensaje!
+
