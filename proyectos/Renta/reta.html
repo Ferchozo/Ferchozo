@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carrera de Rentabilidad</title>
   <link rel="stylesheet" href="renta.css" />
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#4CAF50" />
+<link rel="icon" href="icon-192.png" />
+
 </head>
 <body>
   <div class="app">
@@ -14,5 +18,13 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="renta.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('SW registrado'))
+      .catch(err => console.error('SW fallo:', err));
+  }
+</script>
+
 </body>
 </html>
