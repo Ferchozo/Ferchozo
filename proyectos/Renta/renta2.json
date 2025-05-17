@@ -1,7 +1,7 @@
 {
   "name": "Carrera de Rentabilidad",
   "short_name": "Rentabilidad",
-  "start_url": "./renta.html",
+  "start_url": "proyectos/Renta/renta.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
