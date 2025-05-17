@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+    color: #333;
+  }
+  
+  .app {
+    max-width: 600px;
+    margin: auto;
+    padding: 1em;
+  }
+  
+  #race-track {
+    margin-top: 2em;
+  }
+  
+  .racer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .bar {
+    height: 24px;
+    background: linear-gradient(90deg, #4CAF50, #81C784);
+    border-radius: 12px;
+    transition: width 0.5s ease-in-out;
+  }
+  .vertical-track {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1em;
+    height: 300px;
+    margin-top: 2em;
+    border-left: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  
+  .racer-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .racer-bar {
+    width: 40px;
+    background: linear-gradient(to top, #4CAF50, #81C784);
+    border-radius: 8px 8px 0 0;
+    transition: height 0.6s ease-in-out;
+    margin-bottom: 0.5em;
+  }
+  
+  .racer-label {
+    font-size: 0.9em;
+    text-align: center;
+    max-width: 60px;
+  }
+    
