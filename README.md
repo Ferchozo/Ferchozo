@@ -51,7 +51,7 @@ Soy una persona curiosa por naturaleza, con una mente inquieta que ama resolver 
 
 ### 📫 ¿Quieres hablar conmigo?
 
-- 💼 [LinkedIn]([https://www.linkedin.com/in/tu-perfil](https://www.linkedin.com/in/luis-fernando-hidalgo-manzaba-6539ba241/))
+- 💼 [LinkedIn](https://www.linkedin.com/in/luis-fernando-hidalgo-manzaba-6539ba241/)
 - 💌 ferchoshidalgo@gmail.com 
 - ☕ ¡Siempre estoy dispuesto a colaborar, aprender o simplemente conversar!
 
