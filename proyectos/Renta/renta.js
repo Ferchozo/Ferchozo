@@ -55,4 +55,8 @@ function renderRace(data) {
       track.appendChild(racer);
     });
   }
+document.getElementById('upload').addEventListener('change', function (e) {
+  const fileName = e.target.files[0]?.name || 'Ningún archivo seleccionado';
+  alert(`Archivo cargado: ${fileName}`);
+});
   

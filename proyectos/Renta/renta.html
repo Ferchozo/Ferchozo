@@ -13,7 +13,10 @@
 <body>
   <div class="app">
     <h1>🏁 Carrera de Rentabilidad</h1>
-    <input type="file" id="upload" accept=".xlsx, .xls" />
+    <label for="upload" class="custom-btn">📁 Resumen de venta diaria </label>
+<input type="file" id="upload" accept=".xlsx" style="display: none;" />
+
+    
     <div id="race-track" class="vertical-track"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
