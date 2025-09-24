@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cafetería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+        }
+        .shadow-custom {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Estilos del modal/message box */
+        .message-box {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .message-box-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 28rem;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <div id="app" class="bg-white rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+
+        <!-- Vista de Administrador -->
+        <div id="admin-view" class="view active w-full lg:w-2/3">
+            <header class="mb-6 flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-800">Panel de Administración</h1>
+                <button onclick="showCustomerView()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow-md transition duration-300">
+                    <i class="fas fa-eye mr-2"></i>Ver Menú Cliente
+                </button>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Sección de Menú de Productos -->
+                <div class="md:col-span-2 lg:col-span-2 bg-gray-50 p-6 rounded-xl shadow-inner">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Productos</h2>
+                    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Los productos se renderizarán aquí con JS -->
+                    </div>
+                </div>
+
+                <!-- Sección de Orden y Facturación -->
+                <div class="md:col-span-1 lg:col-span-1 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Orden Actual</h2>
+                    <ul id="order-list" class="space-y-3 mb-6">
+                        <!-- Los ítems de la orden se renderizarán aquí con JS -->
+                    </ul>
+                    <div id="order-summary" class="bg-gray-100 rounded-lg p-4 space-y-2 text-sm text-gray-700">
+                        <div class="flex justify-between">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Impuesto (15%):</span>
+                            <span id="tax">0.00</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-base text-gray-800">
+                            <span>Total:</span>
+                            <span id="total">0.00</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <label for="tip-amount" class="block text-gray-700 font-medium mb-1">Propina (%):</label>
+                        <input type="number" id="tip-amount" value="10" min="0" max="100" class="w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm p-2">
+                    </div>
+                    <button onclick="generateBill()" class="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">
+                        <i class="fas fa-print mr-2"></i>Generar Factura
+                    </button>
+                    <button onclick="clearOrder()" class="mt-3 w-full bg-red-500 hover:bg-red-600 text-white font-medium py-2 rounded-lg transition duration-300">
+                      <i class="fas fa-trash-alt mr-2"></i>Limpiar Orden
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista de Cliente (Menú Digital) -->
+        <div id="customer-view" class="view w-full lg:w-2/3 mx-auto">
+            <header class="mb-8 flex justify-between items-center">
+                <h1 class="text-4xl font-bold text-center w-full text-gray-800">Menú Digital</h1>
+                <button onclick="showAdminView()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow-md transition duration-300">
+                    <i class="fas fa-arrow-left mr-2"></i>Volver
+                </button>
+            </header>
+            <div id="customer-menu" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Los productos se renderizarán aquí con JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mensaje de Alerta personalizado -->
+    <div id="alert-message-box" class="message-box">
+        <div class="message-box-content">
+            <p id="alert-message-text" class="text-lg font-medium text-gray-800"></p>
+            <button onclick="hideAlertMessage()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const menuItems = [
+            { id: 1, name: 'Café Americano', price: 2.5, description: 'Café negro de granos seleccionados.', image: '/img/cafeteria/cafeta.gif' },
+            { id: 2, name: 'Latte', price: 3.0, description: 'Café con leche espumada.', image: '/img/cafeteria/latte.gif' },
+            { id: 3, name: 'Cappuccino', price: 3.5, description: 'Café con leche vaporizada y espuma.', image: '/img/cafeteria/cafe.gif' },
+            { id: 4, name: 'Muffin de Chocolate', price: 2.0, description: 'Delicioso muffin de chocolate.', image: '/img/cafeteria/pastel.gif' },
+            { id: 5, name: 'Croissant', price: 1.5, description: 'Croissant recién horneado.', image: '/img/cafeteria/cuerno.gif' },
+            { id: 6, name: 'Jugo de Naranja', price: 2.50, description: 'Jugo de naranja fresco recién exprimido.', image: '/img/cafeteria/jugo.gif' }
+        ];
+
+        let currentOrder = [];
+
+        function renderAdminView() {
+            document.getElementById('product-list').innerHTML = menuItems.map(item => `
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center card">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-full mb-2 object-cover">
+                    <h3 class="text-lg font-semibold text-gray-800">${item.name}</h3>
+                    <p class="text-gray-500 mb-2">$${item.price.toFixed(2)}</p>
+                    <button onclick="addToOrder(${item.id})" class="mt-2 w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition duration-300">
+                        Añadir
+                    </button>
+                </div>
+            `).join('');
+            updateOrderList();
+        }
+
+        function renderCustomerView() {
+            document.getElementById('customer-menu').innerHTML = menuItems.map(item => `
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 flex flex-col items-center text-center card">
+                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">${item.name}</h3>
+                    <p class="text-gray-600 text-sm mb-4">${item.description}</p>
+                    <span class="text-2xl font-bold text-green-600">$${item.price.toFixed(2)}</span>
+                </div>
+            `).join('');
+        }
+
+        function addToOrder(id) {
+            const item = menuItems.find(i => i.id === id);
+            if (item) {
+                const existingItem = currentOrder.find(i => i.id === id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    currentOrder.push({ ...item, quantity: 1 });
+                }
+                updateOrderList();
+            }
+        }
+
+        function updateOrderList() {
+            const orderList = document.getElementById('order-list');
+            orderList.innerHTML = currentOrder.map(item => `
+                <li class="flex justify-between items-center bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <div class="flex items-center">
+                        <span class="text-gray-800 font-medium">${item.name}</span>
+                        <span class="text-sm text-gray-500 ml-2">(${item.quantity})</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-gray-700 font-bold">$${(item.price * item.quantity).toFixed(2)}</span>
+                        <button onclick="removeFromOrder(${item.id})" class="ml-4 text-red-500 hover:text-red-700 transition duration-300">
+                            <i class="fas fa-times-circle"></i>
+                        </button>
+                    </div>
+                </li>
+            `).join('');
+            calculateTotal();
+        }
+
+        function removeFromOrder(id) {
+            const itemIndex = currentOrder.findIndex(i => i.id === id);
+            if (itemIndex > -1) {
+                if (currentOrder[itemIndex].quantity > 1) {
+                    currentOrder[itemIndex].quantity--;
+                } else {
+                    currentOrder.splice(itemIndex, 1);
+                }
+                updateOrderList();
+            }
+        }
+
+        function calculateTotal() {
+            const subtotal = currentOrder.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.15; // Usando 15% de impuestos como en tu código
+            const tipRate = parseFloat(document.getElementById('tip-amount').value) / 100 || 0;
+            const tip = subtotal * tipRate;
+            const total = subtotal + tax + tip;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function generateBill() {
+            const subtotal = currentOrder.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.15;
+            const tipRate = parseFloat(document.getElementById('tip-amount').value) / 100 || 0;
+            const tip = subtotal * tipRate;
+            const total = subtotal + tax + tip;
+
+            if (currentOrder.length === 0) {
+                alertMessage("Tu carrito está vacío. Añade productos para generar una factura.");
+                return;
+            }
+
+            let billText = `--- Factura de la Cafetería ---\n`;
+            billText += `Fecha: ${new Date().toLocaleDateString()}\n\n`;
+            currentOrder.forEach(item => {
+                billText += `${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}\n`;
+            });
+            billText += `\n----------------------------\n`;
+            billText += `Subtotal: $${subtotal.toFixed(2)}\n`;
+            billText += `Impuesto (15%): $${tax.toFixed(2)}\n`;
+            billText += `Propina (${(tipRate * 100).toFixed(0)}%): $${tip.toFixed(2)}\n`;
+            billText += `Total: $${total.toFixed(2)}\n`;
+            billText += `----------------------------\n`;
+            billText += `¡Gracias por su visita!\n`;
+
+            const messageBox = document.createElement('div');
+            messageBox.className = 'message-box flex';
+            messageBox.innerHTML = `
+                <div class="message-box-content text-center">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Factura Generada</h3>
+                    <pre class="text-left text-sm bg-gray-100 p-4 rounded-lg overflow-x-auto">${billText}</pre>
+                    <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                      <button id="copy-bill-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 w-full">
+                          <i class="fas fa-copy mr-2"></i>Copiar Factura
+                      </button>
+                      <button onclick="hideMessageBox()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg transition-all duration-300 w-full">
+                          Cerrar
+                      </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(messageBox);
+            
+            document.getElementById('copy-bill-btn').onclick = () => {
+                const pre = messageBox.querySelector('pre');
+                const range = document.createRange();
+                range.selectNodeContents(pre);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                document.execCommand('copy');
+                selection.removeAllRanges();
+                alertMessage('¡Factura copiada!');
+            };
+        }
+
+        function clearOrder() {
+            currentOrder = [];
+            updateOrderList();
+            alertMessage("Orden actual vaciada.");
+        }
+
+        function showAdminView() {
+            document.getElementById('customer-view').classList.remove('active');
+            document.getElementById('admin-view').classList.add('active');
+        }
+
+        function showCustomerView() {
+            document.getElementById('admin-view').classList.remove('active');
+            document.getElementById('customer-view').classList.add('active');
+        }
+
+        function alertMessage(message) {
+            const alertBox = document.getElementById('alert-message-box');
+            const alertText = document.getElementById('alert-message-text');
+            alertText.textContent = message;
+            alertBox.style.display = 'flex';
+        }
+        
+        function hideAlertMessage() {
+            const alertBox = document.getElementById('alert-message-box');
+            alertBox.style.display = 'none';
+        }
+
+        function hideMessageBox() {
+            const messageBox = document.querySelector('.message-box');
+            if (messageBox) {
+                messageBox.remove();
+            }
+        }
+
+        window.onload = function() {
+            renderAdminView();
+            renderCustomerView();
+            document.getElementById('tip-amount').addEventListener('input', calculateTotal);
+        };
+    </script>
+
+</body>
+</html>
