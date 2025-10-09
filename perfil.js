@@ -35,5 +35,5 @@ document.addEventListener('DOMContentLoaded', function() {
     //    Asegúrate de que tus fotos de perfil sean adecuadas como favicons (pequeñas y claras).
     //    Si son fotos de cuerpo completo, quizás no se vean bien como favicon.
     //    Podrías tener una lista de favicons específicos si tus fotos son muy grandes.
-    faviconElement.href = selectedPhoto;
+   // faviconElement.href = selectedPhoto;
 });
