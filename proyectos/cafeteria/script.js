@@ -25,31 +25,31 @@ document.addEventListener('DOMContentLoaded', () => {
             nombre: 'Café Americano',
             precio: 2.5,
             descripcion: 'Café negro de granos seleccionados.',
-            imagen:'/img/cafeteria/ico1.gif'
+            imagen:'img/cafeteria/ico1.gif'
         },
         {
             nombre: 'Latte',
             precio: 3.0,
             descripcion: 'Café con leche espumada.',
-            imagen: '/img/cafeteria/ico2.gif'
+            imagen: 'img/cafeteria/ico2.gif'
         },
         {
             nombre: 'Cappuccino',
             precio: 3.5,
             descripcion: 'Café con leche vaporizada y espuma.',
-            imagen: '/img/cafeteria/ico3.gif'
+            imagen: 'img/cafeteria/ico3.gif'
         },
         {
             nombre: 'Muffin de Chocolate',
             precio: 2.0,
             descripcion: 'Delicioso muffin de chocolate.',
-            imagen: '/img/cafeteria/ico4.gif'
+            imagen: 'img/cafeteria/ico4.gif'
         },
         {
             nombre: 'Croissant',
             precio: 1.5,
             descripcion: 'Croissant recién horneado.',
-            imagen: '/img/cafeteria/ico5.gif'
+            imagen: 'img/cafeteria/ico5.gif'
         }
     ];
 
