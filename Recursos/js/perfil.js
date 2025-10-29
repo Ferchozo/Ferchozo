@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const fotosDePerfil = [
-        './Recursos/img/fer2.png',
+        '../Recursos/img/fer2.png',
         './Recursos/img/fer3.png', 
         './Recursos/img/fer4.png',   
     ];
