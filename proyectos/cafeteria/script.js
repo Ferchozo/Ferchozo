@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nombre: 'Café Americano',
             precio: 2.5,
             descripcion: 'Café negro de granos seleccionados.',
-            imagen:'/Recursos/img/cafeteria/ico1.gif'
+            imagen:'../../Recursos/img/cafeteria/ico1.gif'
         },
         {
             nombre: 'Latte',
