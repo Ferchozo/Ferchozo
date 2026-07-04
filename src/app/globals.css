@@ -55,6 +55,11 @@ body {
   @apply text-ink-black;
 }
 
+/* Mismo teal que "Fernando" — gana sobre text-brand-pink en HTML cacheado */
+.section-light .title-hero-name span {
+  color: var(--color-ink-black);
+}
+
 .section-dark .title-hero-name {
   @apply text-brand-pink;
 }
