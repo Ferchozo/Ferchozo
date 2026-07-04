@@ -4,7 +4,7 @@ interface BrushStrokeProps {
 }
 
 export default function BrushStroke({ className = '', color = 'pink' }: BrushStrokeProps) {
-  const fill = color === 'pink' ? '#ff4081' : '#6200ea';
+  const fill = color === 'pink' ? '#DAA112' : '#809276';
 
   return (
     <svg

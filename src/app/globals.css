@@ -5,11 +5,13 @@
   --font-display: var(--font-display), cursive;
   --font-nav: var(--font-nav), ui-sans-serif, system-ui, sans-serif;
 
-  --color-ink-black: #0a0a0a;
-  --color-ink-white: #f5f2eb;
-  --color-brand-pink: #ff4081;
-  --color-brand-purple: #6200ea;
-  --color-brand-muted: #6b6b6b;
+  /* Paleta natural — hoja sobre teal */
+  --color-ink-black: #10383a;
+  --color-ink-white: #eef1f0;
+  --color-brand-pink: #daa112;
+  --color-brand-purple: #809276;
+  --color-brand-olive: #666e51;
+  --color-brand-muted: #768886;
 }
 
 body {
@@ -29,7 +31,7 @@ body {
   font-family: var(--font-body), sans-serif;
 }
 
-/* ── Secciones alternas INKY ── */
+/* ── Secciones alternas ── */
 .section-light {
   @apply bg-ink-white text-ink-black;
 }
@@ -38,7 +40,7 @@ body {
   @apply bg-ink-black text-white;
 }
 
-/* ── Tipografía hero gigante ── */
+/* ── Tipografía hero ── */
 .title-hero {
   font-family: var(--font-display), cursive;
   font-size: clamp(4.5rem, 16vw, 11rem);
@@ -60,26 +62,13 @@ body {
   @apply text-brand-pink;
 }
 
-/* Variante título en sección oscura */
-.section-dark .title-display,
-.section-dark .title-display-sm,
-.section-dark .title-hero {
-  @apply text-brand-pink;
-}
-
-/* Variante título en sección clara */
-.section-light .title-display,
-.section-light .title-display-sm {
-  @apply text-brand-pink;
-}
-
-/* ── Botones pill INKY ── */
+/* ── Botones pill ── */
 .btn-pill-dark {
-  @apply inline-block rounded-full border-2 border-ink-black bg-ink-black px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:bg-brand-pink hover:border-brand-pink;
+  @apply inline-block rounded-full border-2 border-ink-black bg-ink-black px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:border-brand-pink hover:bg-brand-pink hover:text-ink-black;
 }
 
 .btn-pill-light {
-  @apply inline-block rounded-full border-2 border-white bg-transparent px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:bg-brand-pink hover:border-brand-pink;
+  @apply inline-block rounded-full border-2 border-white bg-transparent px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:border-brand-pink hover:bg-brand-pink hover:text-ink-black;
 }
 
 .btn-pill-outline {
@@ -87,20 +76,20 @@ body {
 }
 
 .btn-pill-accent {
-  @apply inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:border-brand-purple hover:bg-brand-purple;
+  @apply inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-ink-black transition hover:border-brand-purple hover:bg-brand-purple hover:text-white;
 }
 
-/* ── Círculos decorativos grandes ── */
+/* ── Círculos decorativos ── */
 .circle-backdrop {
   @apply absolute rounded-full;
 }
 
 .circle-backdrop-pink {
-  background: #ff4081;
+  background: #daa112;
 }
 
 .circle-backdrop-purple {
-  background: #6200ea;
+  background: #809276;
 }
 
 /* ── Imagen editorial B/N ── */

@@ -63,7 +63,7 @@ export default function ProjectCard({
       >
         {project.description}
       </p>
-      <p className="font-nav mt-3 text-[10px] uppercase tracking-[0.25em] text-brand-purple">
+      <p className="font-nav mt-3 text-[10px] uppercase tracking-[0.25em] text-brand-olive">
         {project.tech}
       </p>
     </article>
