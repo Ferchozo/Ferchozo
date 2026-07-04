@@ -7,7 +7,7 @@ export default function Footer() {
         <SocialLinks variant="footer" />
         <div className="text-center md:text-right">
           <p className="font-nav text-xs uppercase tracking-[0.3em] text-white/50">
-            Ecuador · Desarrollo Web &amp; IoT
+            Desarrollo Web &amp; IoT
           </p>
           <p className="mt-3 font-nav text-xs uppercase tracking-[0.25em] text-white/30">
             &copy; 2026 Ferchonand0

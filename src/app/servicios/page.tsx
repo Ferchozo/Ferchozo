@@ -20,9 +20,6 @@ export default function ServiciosPage() {
       <section className="section-light relative overflow-hidden py-16 md:py-24">
         <BrushStroke className="right-0 top-8 w-full max-w-2xl" color="pink" />
         <div className="relative z-10 mx-auto w-[92%] max-w-7xl text-center">
-          <p className="font-nav mb-6 text-xs uppercase tracking-[0.4em] text-brand-muted">
-            Portafolio
-          </p>
           <SectionTitle align="center">Proyectos</SectionTitle>
           <p className="prose-body-normal mx-auto mt-10 max-w-2xl">
             Herramientas web para negocios locales: facturación, inventario, análisis de ventas y

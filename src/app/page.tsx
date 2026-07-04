@@ -12,9 +12,6 @@ export default function HomePage() {
         <BrushStroke className="-right-10 top-16 w-[120%] max-w-none md:top-24" color="pink" />
         <div className="relative z-10 mx-auto flex w-[92%] max-w-7xl flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex-1 lg:max-w-xl">
-            <p className="font-nav mb-6 text-xs uppercase tracking-[0.4em] text-brand-olive">
-              Portfolio · Ecuador
-            </p>
             <h1 className="title-hero-name mb-4">
               Fernando
               <span className="block text-brand-pink">Hidalgo</span>
