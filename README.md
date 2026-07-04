@@ -6,6 +6,44 @@
 
 ---
 
+## 🌐 Sitio web personal
+
+Este repositorio incluye mi **portafolio web** construido con **Next.js 15 + Tailwind CSS** y desplegable en GitHub Pages.
+
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Landing principal |
+| `/servicios` | Portafolio de proyectos |
+| `/politica-privacidad` | Política de privacidad (Pharmacy Tool) |
+| `/proyectos/` | Demos estáticas: cafetería, facturación, inventario, PWA, etc. |
+
+### Desarrollo local
+
+```bash
+npm install
+npm run dev
+# Visita http://localhost:3000
+```
+
+### Build de producción
+
+```bash
+# Local (sin basePath)
+npm run build
+
+# GitHub Pages (con basePath /Ferchozo)
+npm run build:pages
+# Salida en out/
+```
+
+### Despliegue en GitHub Pages
+
+1. Ve a **Settings → Pages** en el repositorio.
+2. En **Source**, selecciona **GitHub Actions**.
+3. Cada push a `master` ejecuta el workflow y despliega desde `out/`.
+
+---
+
 ### 🧠 Sobre mí
 
 Soy una persona curiosa por naturaleza, con una mente inquieta que ama resolver problemas reales a través de soluciones tecnológicas. Combino mis conocimientos en desarrollo web con automatización usando microcontroladores como **ESP8266** y **Raspberry Pi** para crear sistemas funcionales, útiles y modernos.
