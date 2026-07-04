@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.card small {
+  display: block;
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.card .info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.card .precios {
+  font-weight: bold;
+  font-size: 0.85rem;
+  background: #eee;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: #777;
+}

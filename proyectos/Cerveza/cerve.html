@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú de Cervezas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .beer-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .beer-subtitle {
+      font-size: 0.9rem;
+      color: #f57c00;
+    }
+    .description {
+      font-size: 0.9rem;
+      margin: 10px 0;
+    }
+    .info {
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .prices {
+      margin-top: 10px;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin: 4px 0;
+    }
+    .filter-buttons {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-buttons button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+    .filter-buttons button:hover {
+      background: #f57c00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú de Cervezas</h1>
+  <div class="filter-buttons">
+    <button onclick="filterBeers('all')">Todas</button>
+    <button onclick="filterBeers('Amber Ale')">Amber Ale</button>
+    <button onclick="filterBeers('Black')">Black</button>
+    <button onclick="filterBeers('Lager')">Lager</button>
+    <button onclick="filterBeers('Tripel')">Tripel</button>
+    <button onclick="filterBeers('Ale')">Ale</button>
+    <button onclick="filterBeers('Hefeweizen')">Hefeweizen</button>
+  </div>
+
+  <div class="menu" id="beerMenu"></div>
+
+  <script>
+    const beers = [
+      {
+        name: "TANGAN",
+        type: "Amber Ale",
+        description: "Cerveza tipo amber, acaramelada, con cuerpo medio y ligeramente amarga con tonos de lúpulos cítricos.",
+        info: { IBU: 21.6, kcal: 223, ABV: "5%", SRM: 18 },
+        prices: { "330ml": "$4,75", "450ml": "$6,00", "900ml": "$12,00", "1.5LT": "$17,50" }
+      },
+      {
+        name: "PACHA",
+        type: "Black",
+        description: "Negra con mucho cuerpo, compleja y ligeramente dulce con notas de malta tostada que evoca al café y al cacao.",
+        info: { IBU: 35, kcal: 460, ABV: "10%", SRM: 23 },
+        prices: { "330ml": "$5,75", "450ml": "$7,00", "900ml": "--------", "1.5LT": "$20,50" }
+      },
+      {
+        name: "GEISHA",
+        type: "Lager",
+        description: "Delicado sabor y textura, maltas de cebada y arroz con lúpulo alemán.",
+        info: { IBU: 11.4, kcal: 200, ABV: "4.2%", SRM: 3.5 },
+        prices: { "330ml": "$4,75", "450ml": "$6,00", "900ml": "$12,00", "1.5LT": "$17,50" }
+      },
+      {
+        name: "PURA VIDA",
+        type: "Ale",
+        description: "Típica del norte de Alemania, ligeramente salada y tropicalizada con frutilla.",
+        info: { IBU: 6.6, kcal: 260, ABV: "4.5%", SRM: 6 },
+        prices: { "330ml": "$5,75", "450ml": "$7,00", "900ml": "$13,75", "1.5LT": "$20,50" }
+      },
+      {
+        name: "APOSTOL",
+        type: "Tripel",
+        description: "Clásica belga, poco lúpulo con sabores intensos a trigo, con maltas belgas y caramelo.",
+        info: { IBU: 23, kcal: 355, ABV: "9%", SRM: 9 },
+        prices: { "330ml": "$5,75", "450ml": "$7,00", "900ml": "--------", "1.5LT": "$20,50" }
+      },
+      {
+        name: "TRIGUEÑA",
+        type: "Hefeweizen",
+        description: "Cerveza tradicional alemana, aroma a banano y clavo de olor, con levadura alemana.",
+        info: { IBU: 9.7, kcal: 213, ABV: "5.6%", SRM: 3.9 },
+        prices: { "330ml": "$4,75", "450ml": "$6,00", "900ml": "$12,00", "1.5LT": "$17,50" }
+      }
+    ];
+
+    function renderBeers(filter = 'all') {
+      const container = document.getElementById('beerMenu');
+      container.innerHTML = '';
+
+      const filteredBeers = filter === 'all' ? beers : beers.filter(b => b.type.includes(filter));
+
+      filteredBeers.forEach(beer => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="beer-title">${beer.name}</div>
+          <div class="beer-subtitle">${beer.type}</div>
+          <div class="description">${beer.description}</div>
+          <div class="info">
+            <span><strong>IBU:</strong> ${beer.info.IBU}</span>
+            <span><strong>kcal/500ml:</strong> ${beer.info.kcal}</span>
+            <span><strong>ABV:</strong> ${beer.info.ABV}</span>
+            <span><strong>SRM:</strong> ${beer.info.SRM}</span>
+          </div>
+          <div class="prices">
+            ${Object.entries(beer.prices).map(([size, price]) => `<div class="price-row"><span>${size}</span><span>${price}</span></div>`).join('')}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterBeers(type) {
+      renderBeers(type);
+    }
+
+    renderBeers();
+  </script>
+</body>
+</html>
+<a href="/proyectos/Cerveza/tar/tar.js" target="_blank">
+  <button style="margin-top: 20px; background: #0f9d58; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer;">
+    🏅 Agregar tarjeta de fidelización a Google Wallet
+  </button>
+</a>

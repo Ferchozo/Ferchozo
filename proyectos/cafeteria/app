@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Cafetería</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cafetería Delicias</h1>
+            <p>Explora nuestro menú</p>
+        </header>
+
+        <section id="catalogo">
+            <!-- Productos se generarán aquí -->
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Cafetería Delicias. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
