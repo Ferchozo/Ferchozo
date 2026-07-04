@@ -58,7 +58,7 @@ export default function HomePage() {
             </p>
             <p className="prose-body-normal mt-8">
               Combino desarrollo web con hardware para crear sistemas funcionales para PyMEs.
-              Desde una farmacia en Ecuador hasta automatización con microcontroladores.
+              Desde una farmacia local hasta automatización con microcontroladores.
             </p>
           </div>
         </div>
