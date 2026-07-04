@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Roboto, Rubik_Wet_Paint } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { assetUrl } from '@/lib/config';
 import './globals.css';
 
 const roboto = Roboto({
@@ -39,10 +40,10 @@ export const metadata: Metadata = {
     description:
       'Desarrollador web autodidacta. Transformo desafíos en soluciones digitales con enfoque humano y creativo.',
     type: 'website',
-    images: ['/Recursos/img/fer2.png'],
+    images: [assetUrl('/Recursos/img/fer2.png')],
   },
   icons: {
-    icon: '/Recursos/img/fh logo 1.png',
+    icon: assetUrl('/Recursos/img/favicon.png'),
   },
 };
 
