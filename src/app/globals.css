@@ -48,10 +48,25 @@ body {
   @apply text-brand-pink;
 }
 
+.title-hero-name {
+  font-family: var(--font-display), cursive;
+  font-size: clamp(2.75rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  @apply text-ink-black;
+}
+
+.section-dark .title-hero-name {
+  @apply text-brand-pink;
+}
+
 .title-display {
   font-family: var(--font-display), cursive;
   font-size: clamp(3rem, 10vw, 7rem);
   line-height: 0.9;
+  @apply text-ink-black;
+}
+
+.section-dark .title-display {
   @apply text-brand-pink;
 }
 
@@ -99,11 +114,15 @@ body {
 
 /* ── Texto cuerpo ── */
 .prose-body {
-  @apply text-sm leading-8 tracking-[0.15em] text-brand-muted uppercase md:text-base;
+  @apply text-sm leading-8 tracking-[0.15em] uppercase md:text-base;
+}
+
+.section-light .prose-body {
+  @apply text-brand-olive;
 }
 
 .section-dark .prose-body {
-  @apply text-white/60;
+  @apply text-white/90;
 }
 
 .prose-body-normal {
@@ -111,11 +130,11 @@ body {
 }
 
 .section-light .prose-body-normal {
-  @apply text-ink-black/70;
+  @apply text-ink-black;
 }
 
 .section-dark .prose-body-normal {
-  @apply text-white/70;
+  @apply text-white;
 }
 
 /* ── Brush strokes ── */
