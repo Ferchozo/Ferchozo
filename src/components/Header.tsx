@@ -9,7 +9,7 @@ import { assetUrl } from '@/lib/config';
 const navLinks = [
   { href: '/', label: 'Inicio' },
   { href: '/servicios', label: 'Proyectos' },
-  { href: '/politica-privacidad', label: 'Política de privacidad' },
+  { href: '/politica-privacidad', label: 'Privacidad' },
 ];
 
 export default function Header() {
@@ -33,21 +33,21 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-[#1c1c1c]/95 backdrop-blur-sm">
-      <div className="mx-auto flex w-[90%] max-w-6xl items-center justify-between py-4">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-dark/95 backdrop-blur-md">
+      <div className="mx-auto flex w-[92%] max-w-7xl items-center justify-between py-5">
         <Link href="/" className="shrink-0">
           <Image
             src={assetUrl('/Recursos/img/fh logo 1.png')}
             alt="Fernando Hidalgo"
-            width={50}
-            height={50}
+            width={44}
+            height={44}
             priority
           />
         </Link>
 
         <button
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-md md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
@@ -64,17 +64,17 @@ export default function Header() {
         </button>
 
         <nav
-          className={`absolute left-0 right-0 top-full border-b border-white/10 bg-[#1c1c1c] px-[5%] py-6 md:static md:flex md:items-center md:border-0 md:bg-transparent md:p-0 ${
+          className={`absolute left-0 right-0 top-full border-b border-white/10 bg-brand-darker px-[4%] py-8 md:static md:flex md:items-center md:border-0 md:bg-transparent md:p-0 ${
             menuOpen ? 'block' : 'hidden md:flex'
           }`}
         >
-          <ul className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
+          <ul className="flex flex-col gap-5 md:flex-row md:items-center md:gap-10">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`font-medium transition-colors hover:text-pink-400 ${
-                    isActive(link.href) ? 'text-pink-400' : 'text-white'
+                  className={`font-nav text-sm uppercase tracking-[0.2em] transition-colors hover:text-brand-pink ${
+                    isActive(link.href) ? 'text-brand-pink' : 'text-white'
                   }`}
                 >
                   {link.label}
@@ -86,9 +86,9 @@ export default function Header() {
             href="https://www.instagram.com/ferchonand0/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-md bg-[#6200ea] px-6 py-3 text-center font-medium text-white transition hover:bg-gradient-to-r hover:from-[#9e47ff] hover:to-[#fa3232] md:ml-8 md:mt-0"
+            className="btn-pill-filled mt-8 md:ml-10 md:mt-0"
           >
-            Sígueme
+            Hablemos
           </a>
         </nav>
       </div>

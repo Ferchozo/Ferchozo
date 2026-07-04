@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import BrushStroke from '@/components/BrushStroke';
 import ProjectCard from '@/components/ProjectCard';
+import SectionTitle from '@/components/SectionTitle';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -14,21 +16,28 @@ export const metadata: Metadata = {
 
 export default function ServiciosPage() {
   return (
-    <main className="min-h-[70vh] py-12">
-      <div className="mx-auto w-[90%] max-w-6xl">
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-pink-400">Mis Proyectos</h1>
-          <p className="mx-auto max-w-2xl text-lg text-[#b5b5b5]">
+    <>
+      <section className="section-dark relative overflow-hidden py-16 md:py-20">
+        <BrushStroke className="right-0 top-6 w-64 md:w-96" color="pink" />
+        <div className="relative z-10 mx-auto w-[92%] max-w-7xl text-center">
+          <p className="font-nav mb-4 text-xs uppercase tracking-[0.35em] text-brand-muted">
+            Portafolio
+          </p>
+          <SectionTitle align="center">Mis Proyectos</SectionTitle>
+          <p className="prose-body-normal mx-auto mt-8 max-w-2xl">
             Herramientas web pensadas para resolver problemas reales en negocios locales:
             facturación, inventario, análisis de ventas y más.
           </p>
         </div>
-        <section className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.url} project={project} />
+      </section>
+
+      <section className="section-darker pb-24 pt-4">
+        <div className="mx-auto grid w-[92%] max-w-7xl grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, i) => (
+            <ProjectCard key={project.url} project={project} accent={i % 2 === 0 ? 'pink' : 'purple'} />
           ))}
-        </section>
-      </div>
-    </main>
+        </div>
+      </section>
+    </>
   );
 }

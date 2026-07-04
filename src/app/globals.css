@@ -1,9 +1,113 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), cursive;
+  --font-nav: var(--font-nav), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-dark: #1c1c1c;
+  --color-brand-darker: #0f0f0f;
+  --color-brand-alt: #252525;
+  --color-brand-pink: #ff4081;
+  --color-brand-purple: #6200ea;
+  --color-brand-muted: #b5b5b5;
+}
+
+:root {
+  --pink: #ff4081;
+  --purple: #6200ea;
+  --dark: #1c1c1c;
+  --darker: #0f0f0f;
+  --alt: #252525;
+  --muted: #b5b5b5;
 }
 
 body {
-  @apply bg-[#1c1c1c] text-white antialiased;
+  @apply bg-brand-dark text-white;
+}
+
+.font-display {
+  font-family: var(--font-display), cursive;
+}
+
+.font-nav {
+  font-family: var(--font-nav), sans-serif;
+  letter-spacing: 0.12em;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Secciones alternas estilo editorial */
+.section-dark {
+  @apply bg-brand-dark;
+}
+
+.section-darker {
+  @apply bg-brand-darker;
+}
+
+.section-alt {
+  @apply bg-brand-alt;
+}
+
+/* Título display tipo brush */
+.title-display {
+  font-family: var(--font-display), cursive;
+  @apply text-5xl leading-none text-brand-pink md:text-7xl lg:text-8xl;
+}
+
+.title-display-sm {
+  font-family: var(--font-display), cursive;
+  @apply text-4xl leading-tight text-brand-pink md:text-5xl;
+}
+
+/* Botón pill estilo INKY */
+.btn-pill {
+  @apply inline-block rounded-full border-2 border-white bg-transparent px-8 py-3 font-nav text-sm uppercase tracking-widest text-white transition;
+}
+
+.btn-pill:hover {
+  @apply border-brand-pink bg-brand-pink text-white;
+}
+
+.btn-pill-filled {
+  @apply inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-8 py-3 font-nav text-sm uppercase tracking-widest text-white transition;
+}
+
+.btn-pill-filled:hover {
+  @apply border-brand-purple bg-brand-purple;
+}
+
+/* Círculo decorativo detrás de imágenes */
+.circle-backdrop {
+  @apply absolute rounded-full;
+}
+
+.circle-backdrop-pink {
+  background: linear-gradient(135deg, #ff4081 0%, #ff79b0 100%);
+}
+
+.circle-backdrop-purple {
+  background: linear-gradient(135deg, #6200ea 0%, #9e47ff 100%);
+}
+
+/* Imagen con tratamiento editorial */
+.img-editorial {
+  @apply relative z-10 grayscale contrast-125;
+}
+
+/* Texto cuerpo editorial */
+.prose-body {
+  @apply text-sm leading-7 tracking-wide text-brand-muted uppercase md:text-base;
+}
+
+.prose-body-normal {
+  @apply text-base leading-relaxed text-brand-muted normal-case md:text-lg;
+}
+
+/* Separador brush */
+.brush-divider {
+  @apply pointer-events-none absolute z-0 opacity-90;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Bebas_Neue, Permanent_Marker, Roboto } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import './globals.css';
@@ -8,6 +8,21 @@ const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   display: 'swap',
+  variable: '--font-body',
+});
+
+const display = Permanent_Marker({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const nav = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-nav',
 });
 
 export const metadata: Metadata = {
@@ -34,9 +49,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={roboto.className}>
+      <body className={`${roboto.variable} ${display.variable} ${nav.variable} font-body antialiased`}>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
