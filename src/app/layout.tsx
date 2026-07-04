@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bebas_Neue, Permanent_Marker, Roboto } from 'next/font/google';
+import { Bebas_Neue, Roboto, Rubik_Wet_Paint } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import './globals.css';
@@ -11,7 +11,7 @@ const roboto = Roboto({
   variable: '--font-body',
 });
 
-const display = Permanent_Marker({
+const display = Rubik_Wet_Paint({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',

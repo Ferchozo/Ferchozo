@@ -5,25 +5,15 @@
   --font-display: var(--font-display), cursive;
   --font-nav: var(--font-nav), ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-dark: #1c1c1c;
-  --color-brand-darker: #0f0f0f;
-  --color-brand-alt: #252525;
+  --color-ink-black: #0a0a0a;
+  --color-ink-white: #f5f2eb;
   --color-brand-pink: #ff4081;
   --color-brand-purple: #6200ea;
-  --color-brand-muted: #b5b5b5;
-}
-
-:root {
-  --pink: #ff4081;
-  --purple: #6200ea;
-  --dark: #1c1c1c;
-  --darker: #0f0f0f;
-  --alt: #252525;
-  --muted: #b5b5b5;
+  --color-brand-muted: #6b6b6b;
 }
 
 body {
-  @apply bg-brand-dark text-white;
+  @apply bg-ink-white text-ink-black;
 }
 
 .font-display {
@@ -32,82 +22,114 @@ body {
 
 .font-nav {
   font-family: var(--font-nav), sans-serif;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
 }
 
 .font-body {
   font-family: var(--font-body), sans-serif;
 }
 
-/* Secciones alternas estilo editorial */
+/* ── Secciones alternas INKY ── */
+.section-light {
+  @apply bg-ink-white text-ink-black;
+}
+
 .section-dark {
-  @apply bg-brand-dark;
+  @apply bg-ink-black text-white;
 }
 
-.section-darker {
-  @apply bg-brand-darker;
+/* ── Tipografía hero gigante ── */
+.title-hero {
+  font-family: var(--font-display), cursive;
+  font-size: clamp(4.5rem, 16vw, 11rem);
+  line-height: 0.85;
+  @apply text-brand-pink;
 }
 
-.section-alt {
-  @apply bg-brand-alt;
-}
-
-/* Título display tipo brush */
 .title-display {
   font-family: var(--font-display), cursive;
-  @apply text-5xl leading-none text-brand-pink md:text-7xl lg:text-8xl;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.9;
+  @apply text-brand-pink;
 }
 
 .title-display-sm {
   font-family: var(--font-display), cursive;
-  @apply text-4xl leading-tight text-brand-pink md:text-5xl;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.95;
+  @apply text-brand-pink;
 }
 
-/* Botón pill estilo INKY */
-.btn-pill {
-  @apply inline-block rounded-full border-2 border-white bg-transparent px-8 py-3 font-nav text-sm uppercase tracking-widest text-white transition;
+/* Variante título en sección oscura */
+.section-dark .title-display,
+.section-dark .title-display-sm,
+.section-dark .title-hero {
+  @apply text-brand-pink;
 }
 
-.btn-pill:hover {
-  @apply border-brand-pink bg-brand-pink text-white;
+/* Variante título en sección clara */
+.section-light .title-display,
+.section-light .title-display-sm {
+  @apply text-brand-pink;
 }
 
-.btn-pill-filled {
-  @apply inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-8 py-3 font-nav text-sm uppercase tracking-widest text-white transition;
+/* ── Botones pill INKY ── */
+.btn-pill-dark {
+  @apply inline-block rounded-full border-2 border-ink-black bg-ink-black px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:bg-brand-pink hover:border-brand-pink;
 }
 
-.btn-pill-filled:hover {
-  @apply border-brand-purple bg-brand-purple;
+.btn-pill-light {
+  @apply inline-block rounded-full border-2 border-white bg-transparent px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:bg-brand-pink hover:border-brand-pink;
 }
 
-/* Círculo decorativo detrás de imágenes */
+.btn-pill-outline {
+  @apply inline-block rounded-full border-2 border-ink-black bg-transparent px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-ink-black transition hover:bg-ink-black hover:text-white;
+}
+
+.btn-pill-accent {
+  @apply inline-block rounded-full border-2 border-brand-pink bg-brand-pink px-10 py-3.5 font-nav text-sm uppercase tracking-[0.25em] text-white transition hover:border-brand-purple hover:bg-brand-purple;
+}
+
+/* ── Círculos decorativos grandes ── */
 .circle-backdrop {
   @apply absolute rounded-full;
 }
 
 .circle-backdrop-pink {
-  background: linear-gradient(135deg, #ff4081 0%, #ff79b0 100%);
+  background: #ff4081;
 }
 
 .circle-backdrop-purple {
-  background: linear-gradient(135deg, #6200ea 0%, #9e47ff 100%);
+  background: #6200ea;
 }
 
-/* Imagen con tratamiento editorial */
+/* ── Imagen editorial B/N ── */
 .img-editorial {
   @apply relative z-10 grayscale contrast-125;
 }
 
-/* Texto cuerpo editorial */
+/* ── Texto cuerpo ── */
 .prose-body {
-  @apply text-sm leading-7 tracking-wide text-brand-muted uppercase md:text-base;
+  @apply text-sm leading-8 tracking-[0.15em] text-brand-muted uppercase md:text-base;
+}
+
+.section-dark .prose-body {
+  @apply text-white/60;
 }
 
 .prose-body-normal {
-  @apply text-base leading-relaxed text-brand-muted normal-case md:text-lg;
+  @apply text-base leading-relaxed normal-case md:text-lg;
 }
 
-/* Separador brush */
+.section-light .prose-body-normal {
+  @apply text-ink-black/70;
+}
+
+.section-dark .prose-body-normal {
+  @apply text-white/70;
+}
+
+/* ── Brush strokes ── */
 .brush-divider {
-  @apply pointer-events-none absolute z-0 opacity-90;
+  @apply pointer-events-none absolute z-0;
 }

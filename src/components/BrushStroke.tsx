@@ -9,24 +9,23 @@ export default function BrushStroke({ className = '', color = 'pink' }: BrushStr
   return (
     <svg
       className={`brush-divider ${className}`}
-      viewBox="0 0 400 80"
+      viewBox="0 0 600 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
       <path
-        d="M5 45C40 20 80 60 120 35C160 10 200 55 240 30C280 5 320 50 360 25C375 18 390 30 395 40"
+        d="M0 55C60 15 120 75 180 40C240 5 300 70 360 35C420 0 480 65 540 30C560 20 580 45 600 55"
         stroke={fill}
-        strokeWidth="14"
+        strokeWidth="22"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
       <path
-        d="M10 55C50 70 90 40 130 58C170 76 210 42 250 60C290 78 330 48 370 62"
+        d="M10 72C70 90 130 50 190 75C250 100 310 55 370 80C430 105 490 60 550 85"
         stroke={fill}
-        strokeWidth="8"
+        strokeWidth="12"
         strokeLinecap="round"
-        opacity="0.6"
+        opacity="0.55"
       />
     </svg>
   );

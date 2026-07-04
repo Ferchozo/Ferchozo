@@ -1,8 +1,8 @@
 interface SocialLinksProps {
-  variant?: 'default' | 'footer';
+  variant?: 'light' | 'dark' | 'footer';
 }
 
-export default function SocialLinks({ variant = 'default' }: SocialLinksProps) {
+export default function SocialLinks({ variant = 'dark' }: SocialLinksProps) {
   const links = [
     {
       label: 'Instagram',
@@ -33,15 +33,13 @@ export default function SocialLinks({ variant = 'default' }: SocialLinksProps) {
     },
   ];
 
-  const containerClass =
-    variant === 'footer'
-      ? 'flex gap-6'
-      : 'mt-8 flex gap-5';
-
   const linkClass =
-    variant === 'footer'
-      ? 'text-brand-muted transition hover:text-brand-pink'
-      : 'text-white transition hover:text-brand-pink';
+    variant === 'light'
+      ? 'text-ink-black transition hover:text-brand-pink'
+      : 'text-white/70 transition hover:text-brand-pink';
+
+  const containerClass =
+    variant === 'footer' ? 'flex gap-8' : 'mt-10 flex gap-6';
 
   return (
     <div className={containerClass}>
