@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { assetUrl } from '@/lib/config';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -36,7 +37,7 @@ export default function Header() {
       <div className="mx-auto flex w-[90%] max-w-6xl items-center justify-between py-4">
         <Link href="/" className="shrink-0">
           <Image
-            src="/Recursos/img/fh logo 1.png"
+            src={assetUrl('/Recursos/img/fh logo 1.png')}
             alt="Fernando Hidalgo"
             width={50}
             height={50}

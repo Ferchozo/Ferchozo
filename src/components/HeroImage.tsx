@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { assetUrl } from '@/lib/config';
 
 const photos = [
   '/Recursos/img/fer2.png',
@@ -10,11 +11,11 @@ const photos = [
 ];
 
 export default function HeroImage() {
-  const [src, setSrc] = useState(photos[0]);
+  const [src, setSrc] = useState(assetUrl(photos[0]));
 
   useEffect(() => {
     const index = Math.floor(Math.random() * photos.length);
-    setSrc(photos[index]);
+    setSrc(assetUrl(photos[index]));
   }, []);
 
   return (

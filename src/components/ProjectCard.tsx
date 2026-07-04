@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       className="group relative cursor-pointer overflow-hidden rounded-xl bg-[#2a2a2a] shadow-lg transition hover:-translate-y-1.5 hover:shadow-pink-500/20"
     >
       <Image
-        src={project.image}
+        src={assetUrl(project.image)}
         alt={project.title}
         width={400}
         height={200}
