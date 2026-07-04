@@ -14,7 +14,7 @@ export default function HomePage() {
           <div className="flex-1 lg:max-w-xl">
             <h1 className="title-hero-name mb-4">
               Fernando
-              <span className="block text-brand-pink">Hidalgo</span>
+              <span className="block">Hidalgo</span>
             </h1>
             <p className="font-nav mb-8 text-xl uppercase tracking-[0.35em] text-ink-black md:text-2xl">
               Desarrollador Web
