@@ -56,6 +56,14 @@ body {
     font-weight: 500;
 }
 
+.nav-menu a.active {
+    color: #ff4081;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
 .btn {
     background: #ff4081;
     color: #fff;

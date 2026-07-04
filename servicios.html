@@ -3,38 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos</title>
-    <link rel="icon" type="image/png" href="./Recursos/img/cordillera/i">
+    <meta name="description" content="Portafolio de proyectos web de Fernando Hidalgo: facturación, inventario, PWA y más.">
+    <meta property="og:title" content="Proyectos | Fernando Hidalgo">
+    <meta property="og:description" content="Soluciones web para cafeterías, farmacias y PyMEs.">
+    <meta property="og:type" content="website">
+    <title>Proyectos | Fernando Hidalgo</title>
+    <link rel="icon" type="image/png" href="./Recursos/img/fh logo 1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Recursos/css/style.css">
     <link rel="stylesheet" href="./Recursos/css/servicios.css">
 </head>
 <body>
-    <header>
-        <h1>Proyectos</h1>
+    <header class="header">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./Recursos/img/fh logo 1.png" height="50" alt="Fernando Hidalgo">
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html" class="active">Proyectos</a></li>
+                        <li><a href="politica_privacidad.html">Política de privacidad</a></li>
+                    </ul>
+                    <a href="https://www.instagram.com/ferchonand0/" target="_blank" rel="noopener" class="btn btn-primary">Sígueme</a>
+                </nav>
+            </div>
+        </div>
     </header>
-    <section class="portfolio">
-        <div class="project" onclick="openProject('proyectos/cafeteria/app.html')">
-            <img src="./Recursos/img/cafeteria/port1.jpg" alt="Proyecto 1">
-            <div class="overlay">
-                <h2>Sistema de Facturación para Cafeterías</h2>
-                <p>Una solución web robusta y fácil de usar, diseñada para optimizar las operaciones de restaurantes y cafeterías. Este sistema digitaliza el proceso de facturación, liberando a los negocios de las complicaciones manuales y agilizando cada transacción.</p>
-                <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+
+    <main class="portfolio-page">
+        <div class="container">
+            <div class="portfolio-intro">
+                <h1>Mis Proyectos</h1>
+                <p>Herramientas web pensadas para resolver problemas reales en negocios locales: facturación, inventario, análisis de ventas y más.</p>
             </div>
+
+            <section class="portfolio">
+                <article class="project" onclick="openProject('proyectos/cafeteria/app.html')">
+                    <img src="./Recursos/img/cafeteria/port1.jpg" alt="Sistema de facturación para cafeterías">
+                    <div class="overlay">
+                        <h2>Facturación Cafetería</h2>
+                        <p>Catálogo de productos, carrito de compras y flujo de facturación para restaurantes y cafeterías.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/cafeteria/Cafe.html')">
+                    <img src="./Recursos/img/cafeteria/port2.png" alt="Menú digital moderno para cafetería">
+                    <div class="overlay">
+                        <h2>Menú Digital (Tailwind)</h2>
+                        <p>Versión moderna del sistema de cafetería con interfaz responsive y diseño con Tailwind CSS.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, Tailwind CSS, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/Facturacion%20beta/index.html')">
+                    <img src="./Recursos/img/mape.png" alt="Plataforma de facturación">
+                    <div class="overlay">
+                        <h2>Plataforma de Facturación</h2>
+                        <p>Generación de facturas con datos de cliente, productos dinámicos y cálculo automático de totales.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, Bootstrap, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/Herramienta/Inventario.html')">
+                    <img src="./Recursos/img/skull.png" alt="Sistema de inventario con escaneo">
+                    <div class="overlay">
+                        <h2>Inventario con Escaneo</h2>
+                        <p>Control de inventario con lectura de códigos de barras por cámara e importación/exportación Excel.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> Material Design Lite, QuaggaJS, XLSX</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/Renta/renta.html')">
+                    <img src="./proyectos/Renta/imgrenta/icon-512.png" alt="Carrera de rentabilidad PWA">
+                    <div class="overlay">
+                        <h2>Carrera de Rentabilidad</h2>
+                        <p>PWA que visualiza el rendimiento de vendedores a partir de archivos Excel de ventas diarias.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> PWA, Service Worker, SheetJS</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/Cerveza/cerveza.html')">
+                    <img src="./Recursos/img/cafeteria/cafe.gif" alt="Menú de cervezas artesanales">
+                    <div class="overlay">
+                        <h2>Menú Cervezas Artesanales</h2>
+                        <p>Catálogo interactivo de cervezas con información dinámica generada desde JavaScript.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('proyectos/serpiente/serpiente.html')">
+                    <img src="./Recursos/img/fh logo 1.png" alt="Juego de la serpiente">
+                    <div class="overlay">
+                        <h2>Snake Game</h2>
+                        <p>Implementación clásica del juego de la serpiente en JavaScript puro.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('gato.html')">
+                    <img src="./Recursos/img/fer3.png" alt="Gato interactivo que sigue el cursor">
+                    <div class="overlay">
+                        <h2>Gato Interactivo</h2>
+                        <p>Animación CSS/JS de un gato cuyos ojos siguen el movimiento del cursor. Un homenaje a Cogollo.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" onclick="openProject('cordillera.html')">
+                    <img src="./Recursos/img/cordillera/image3.gif" alt="Festival Cordillera cuenta regresiva">
+                    <div class="overlay">
+                        <h2>Festival Cordillera</h2>
+                        <p>Landing con cuenta regresiva, playlist de Spotify e imágenes flotantes para el festival.</p>
+                        <p class="tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+                    </div>
+                </article>
+            </section>
         </div>
-        <div class="project" onclick="openProject('proyectos/cafeteria/Cafe.html')">
-             <img src="./Recursos/img/cafeteria/port2.png" alt="Proyecto 1">
-            <div class="overlay">
-                <h2>Sistema de Facturación para Cafeterías</h2>
-                <p>Una solución web robusta y fácil de usar, diseñada para optimizar las operaciones de restaurantes y cafeterías. Este sistema digitaliza el proceso de facturación, liberando a los negocios de las complicaciones manuales y agilizando cada transacción.</p>
-                <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
-            </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Ferchonand0. Todos los derechos reservados.</p>
         </div>
-        
-        <!--Puto el que lee-->
-    </section>
+    </footer>
 
     <script>
         function openProject(url) {
-            window.open(url, '_blank');
+            window.open(url, '_blank', 'noopener');
         }
     </script>
 </body>

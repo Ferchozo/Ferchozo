@@ -6,6 +6,36 @@
 
 ---
 
+## 🌐 Sitio web personal
+
+Este repositorio incluye mi **portafolio web** desplegable en GitHub Pages.
+
+| Página | Descripción |
+|--------|-------------|
+| `index.html` | Landing principal |
+| `servicios.html` | Portafolio de proyectos |
+| `politica_privacidad.html` | Política de privacidad (Pharmacy Tool) |
+| `proyectos/` | Demos: cafetería, facturación, inventario, PWA, etc. |
+
+### Cómo verlo en local
+
+```bash
+# Opción 1: abrir directamente
+open index.html
+
+# Opción 2: servidor local (recomendado)
+python3 -m http.server 8000
+# Visita http://localhost:8000
+```
+
+### Despliegue en GitHub Pages
+
+1. Ve a **Settings → Pages** en el repositorio.
+2. En **Source**, selecciona **GitHub Actions**.
+3. Cada push a `master` despliega automáticamente con el workflow `.github/workflows/pages.yml`.
+
+---
+
 ### 🧠 Sobre mí
 
 Soy una persona curiosa por naturaleza, con una mente inquieta que ama resolver problemas reales a través de soluciones tecnológicas. Combino mis conocimientos en desarrollo web con automatización usando microcontroladores como **ESP8266** y **Raspberry Pi** para crear sistemas funcionales, útiles y modernos.
