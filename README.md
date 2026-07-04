@@ -8,31 +8,39 @@
 
 ## 🌐 Sitio web personal
 
-Este repositorio incluye mi **portafolio web** desplegable en GitHub Pages.
+Este repositorio incluye mi **portafolio web** construido con **Next.js 15 + Tailwind CSS** y desplegable en GitHub Pages.
 
-| Página | Descripción |
-|--------|-------------|
-| `index.html` | Landing principal |
-| `servicios.html` | Portafolio de proyectos |
-| `politica_privacidad.html` | Política de privacidad (Pharmacy Tool) |
-| `proyectos/` | Demos: cafetería, facturación, inventario, PWA, etc. |
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Landing principal |
+| `/servicios` | Portafolio de proyectos |
+| `/politica-privacidad` | Política de privacidad (Pharmacy Tool) |
+| `/proyectos/` | Demos estáticas: cafetería, facturación, inventario, PWA, etc. |
 
-### Cómo verlo en local
+### Desarrollo local
 
 ```bash
-# Opción 1: abrir directamente
-open index.html
+npm install
+npm run dev
+# Visita http://localhost:3000
+```
 
-# Opción 2: servidor local (recomendado)
-python3 -m http.server 8000
-# Visita http://localhost:8000
+### Build de producción
+
+```bash
+# Local (sin basePath)
+npm run build
+
+# GitHub Pages (con basePath /Ferchozo)
+npm run build:pages
+# Salida en out/
 ```
 
 ### Despliegue en GitHub Pages
 
 1. Ve a **Settings → Pages** en el repositorio.
 2. En **Source**, selecciona **GitHub Actions**.
-3. Cada push a `master` despliega automáticamente con el workflow `.github/workflows/pages.yml`.
+3. Cada push a `master` ejecuta el workflow y despliega desde `out/`.
 
 ---
 
