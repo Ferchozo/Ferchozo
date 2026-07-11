@@ -1,5 +1,6 @@
 'use client';
 
+import { palette } from '@/lib/colors';
 import { useInView } from '@/hooks/useInView';
 
 interface BrushStrokeProps {
@@ -8,7 +9,7 @@ interface BrushStrokeProps {
 }
 
 export default function BrushStroke({ className = '', color = 'pink' }: BrushStrokeProps) {
-  const stroke = color === 'pink' ? '#DAA112' : '#809276';
+  const stroke = color === 'pink' ? palette.brandPink : palette.brandPurple;
   const { ref, inView } = useInView<SVGSVGElement>(0.2);
 
   return (

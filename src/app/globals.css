@@ -5,13 +5,14 @@
   --font-display: var(--font-display), cursive;
   --font-nav: var(--font-nav), ui-sans-serif, system-ui, sans-serif;
 
-  /* Paleta natural — hoja sobre teal */
-  --color-ink-black: #10383a;
-  --color-ink-white: #eef1f0;
-  --color-brand-pink: #daa112;
-  --color-brand-purple: #809276;
-  --color-brand-olive: #666e51;
-  --color-brand-muted: #768886;
+  /* Paleta PaletteCentral — gallo ilustrado */
+  --color-ink-black: #2d2430;
+  --color-ink-white: #ebe8e4;
+  --color-brand-pink: #ff4e2b;
+  --color-brand-purple: #00a88e;
+  --color-brand-olive: #ffa500;
+  --color-brand-muted: #6b6574;
+  --color-brand-coral: #ff929e;
 }
 
 body {
@@ -55,7 +56,7 @@ body {
   @apply text-ink-black;
 }
 
-/* Mismo teal que "Fernando" — gana sobre text-brand-pink en HTML cacheado */
+/* Mismo color que "Fernando" — gana sobre text-brand-pink en HTML cacheado */
 .section-light .title-hero-name span {
   color: var(--color-ink-black);
 }
@@ -105,11 +106,11 @@ body {
 }
 
 .circle-backdrop-pink {
-  background: #daa112;
+  background: var(--color-brand-pink);
 }
 
 .circle-backdrop-purple {
-  background: #809276;
+  background: var(--color-brand-purple);
 }
 
 /* ── Imagen editorial B/N ── */

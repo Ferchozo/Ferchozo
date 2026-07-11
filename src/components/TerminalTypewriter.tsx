@@ -56,7 +56,7 @@ export default function TerminalTypewriter() {
       className="terminal-line font-mono text-sm text-brand-olive md:text-base"
       aria-label={`Terminal: ${text || LINES[lineIndex]}`}
     >
-      <span className="text-brand-muted">&gt;</span> {text}
+      <span className="text-brand-coral">&gt;</span> {text}
       {!reducedMotion && <span className="terminal-cursor" aria-hidden />}
     </p>
   );

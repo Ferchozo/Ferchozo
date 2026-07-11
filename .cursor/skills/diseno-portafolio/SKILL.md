@@ -14,16 +14,17 @@ Estilo editorial inspirado en INKY Tattoo Studio:
 - Botones **pill** (redondeados completos)
 - Layout **asimétrico**: texto a un lado, imagen al otro
 
-## Paleta de colores (NO cambiar sin permiso)
+## Paleta de colores (PaletteCentral — gallo ilustrado)
 
 | Token | Valor | Uso |
 |-------|-------|-----|
-| `ink-black` | `#10383A` | Fondos oscuros (teal profundo), texto en secciones claras |
-| `ink-white` | `#EEF1F0` | Fondos claros (gris verdoso suave) |
-| `brand-pink` | `#DAA112` | Acento primario — amarillo dorado (títulos, círculos, CTAs) |
-| `brand-purple` | `#809276` | Acento secundario — verde salvia (círculos alternos, hovers) |
-| `brand-olive` | `#666E51` | Acento terciario — oliva (tech labels, detalles) |
-| `brand-muted` | `#768886` | Texto secundario — gris azulado |
+| `ink-black` | `#2D2430` | Fondos oscuros (carbón), texto en secciones claras |
+| `ink-white` | `#EBE8E4` | Fondos claros (crema) |
+| `brand-pink` | `#FF4E2B` | Acento primario — naranja-rojo (títulos oscuros, círculos, CTAs) |
+| `brand-purple` | `#00A88E` | Acento secundario — teal vibrante (círculos alternos, hovers) |
+| `brand-olive` | `#FFA500` | Acento terciario — amarillo dorado (tech labels, terminal) |
+| `brand-muted` | `#6B6574` | Texto secundario — gris púrpura suave |
+| `brand-coral` | `#FF929E` | Acento suave — coral (detalles, prompt terminal) |
 
 ## Tipografía
 
@@ -37,11 +38,11 @@ Estilo editorial inspirado en INKY Tattoo Studio:
 
 1. **Hero siempre en fondo claro** (`section-light`) con título mínimo `clamp(4.5rem, 16vw, 11rem)`
 2. **Alternar** `section-light` → `section-dark` → `section-light` en cada scroll
-3. **Círculos decorativos** mínimo `22rem` en hero — amarillo `#DAA112` o salvia `#809276`
-4. **Brush strokes** entre secciones en amarillo o salvia
-5. **No usar** rosa/morado de la paleta anterior
-6. En secciones oscuras (teal): texto blanco, botones `btn-pill-light` o `btn-pill-accent`
-7. En secciones claras: texto teal `#10383A`, botones `btn-pill-dark` o `btn-pill-outline`
+3. **Círculos decorativos** mínimo `22rem` en hero — naranja `#FF4E2B` o teal `#00A88E`
+4. **Brush strokes** entre secciones en naranja o teal
+5. **No usar** la paleta anterior (teal oscuro `#10383A` / dorado `#DAA112`)
+6. En secciones oscuras (carbón): texto blanco, botones `btn-pill-light` o `btn-pill-accent`
+7. En secciones claras: texto carbón `#2D2430`, botones `btn-pill-dark` o `btn-pill-outline`
 
 ## Despliegue
 
